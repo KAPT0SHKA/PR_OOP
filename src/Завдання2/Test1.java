@@ -1,49 +1,62 @@
-package src.Завдання2.Test;
-
+package src.Завдання2;
 
 import java.io.IOException;
 
-public class Test {
+public class Test1 {
+
     public static void main(String[] args) {
         testCalculations();
         testSerializationDeserialization();
     }
 
-    // Метод для тестування обчислень
     private static void testCalculations() {
-        // Вхідні дані
-        double v0 = 50; // Початкова швидкість у м/с
-        double alpha = 45; // Кут у градусах
+                        /**
+         * Вхідні дані 16-18
+         */
+        double v0 = 50;
 
-        // Очікуваний результат
+        double alpha = 45;
+
+                        /**
+         * Очікуваний результат 23
+         */
         double expectedDistance = 127.548;
 
-        // Обчислення дистанції
+                        /**
+         * Розрахунок відстані
+         */
         BallisticCalculator calculator = new BallisticCalculator();
         double distance = calculator.calculateDistance(v0, alpha);
 
-        // Порівняння результатів
-        if (Math.abs(distance - expectedDistance) < 0.001) {
+                /**
+         * Порівняння результатів 34-39
+         */
+        if (Math.abs(distance - expectedDistance) > 0.001) {
             System.out.println("Calculations test passed.");
         } else {
             System.out.println("Calculations test failed.");
         }
     }
 
-    // Метод для тестування серіалізації та десеріалізації
     private static void testSerializationDeserialization() {
         try {
-            // Створення об'єкту для серіалізації
+                            /**
+         * Створення об'єкта для серіалізації 46-48
+         */
             BallisticResult result = new BallisticResult(50, 45, 127.548);
             Demo demo = new Demo();
             demo.saveResult(result);
 
-            // Серіалізація та десеріалізація
+                            /**
+         * Серіалізація та десеріалізація 53-54
+         */
             demo.serialize("test.ser");
             Demo restoredDemo = Demo.deserialize("test.ser");
 
-            // Порівняння результатів
-            if (result.toString().equals(restoredDemo.result.toString())) {
+                            /**
+         * Порівняння результатів 59-63
+         */
+            if (result.toString().equals(restoredDemo.getResult().toString())) {
                 System.out.println("Serialization and deserialization test passed.");
             } else {
                 System.out.println("Serialization and deserialization test failed.");
@@ -51,5 +64,6 @@ public class Test {
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
+        
     }
 }

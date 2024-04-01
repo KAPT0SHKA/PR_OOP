@@ -2,7 +2,9 @@ package src.Завдання2;
 
 import java.io.*;
 
-// Клас для зберігання параметрів і результатів обчислень
+                    /**
+         * Клас для зберігання параметрів і результатів обчислень 8-23
+         */
 class BallisticResult implements Serializable {
     double v0; // Початкова швидкість
     double alpha; // Кут
@@ -20,30 +22,39 @@ class BallisticResult implements Serializable {
     }
 }
 
-// Клас для знаходження рішення задачі
+                    /**
+         * Клас для знаходження рішення задачі 26-27
+         */
 class BallisticCalculator {
-    private double g = 9.81; // Прискорення вільного падіння у м/с^2
+    private double g = 9.81;
 
-    // Метод для обчислення відстані
+                    /**
+         * Метод для обчислення відстані 30-32
+         */
     public double calculateDistance(double v0, double alpha) {
         double radians = Math.toRadians(alpha);
         return (v0 * v0 * Math.sin(2 * radians)) / g;
     }
 }
 
-// Клас для демонстрації збереження та відновлення стану об'єкта
+                    /**
+         * Клас для демонстрації збереження та відновлення стану об'єкта 39-52
+         */
 class Demo implements Serializable {
-    private transient BallisticResult result; // transient поле для демонстрації
+    private BallisticResult result;
 
     public void saveResult(BallisticResult result) {
         this.result = result;
+    }
+
+    public BallisticResult getResult() {
+        return result;
     }
 
     public void displayResult() {
         System.out.println(result);
     }
 
-    // Метод для збереження стану об'єкта
     public void serialize(String filename) throws IOException {
         FileOutputStream fileOut = new FileOutputStream(filename);
         ObjectOutputStream out = new ObjectOutputStream(fileOut);
@@ -52,7 +63,6 @@ class Demo implements Serializable {
         fileOut.close();
     }
 
-    // Метод для відновлення стану об'єкта
     public static Demo deserialize(String filename) throws IOException, ClassNotFoundException {
         FileInputStream fileIn = new FileInputStream(filename);
         ObjectInputStream in = new ObjectInputStream(fileIn);
