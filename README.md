@@ -35,6 +35,6 @@
 
 ![](Screenshot/4.png)
 
-Результат:
+### Результат:
 
 ![](Screenshot/5.png)
