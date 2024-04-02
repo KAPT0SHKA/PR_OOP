@@ -1,16 +1,16 @@
 package Завдання3;
 /** ConcreteCreator
-* (шаблон проектирования
+* (шаблон проектування
 * Factory Method)<br>
-* Объявляет метод,
-* "фабрикующий" объекты
+* Оголошує метод,
+* "фабрикуючий" об'єкти
 * @author xone
 * @version 1.0
 * @see Viewable
 * @see ViewableResult#getView()
 */
 public class ViewableResult implements Viewable {
-/** Создаёт отображаемый объект {@linkplain ViewResult} */
+/** Створює об'єкт, що відображається {@linkplain ViewResult} */
 @Override
 public View getView() {
 return new ViewResult();

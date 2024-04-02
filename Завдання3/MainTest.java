@@ -1,13 +1,10 @@
 package Завдання3;
 
 import org.junit.Test;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-import junit.framework.Assert;
 import java.io.IOException;
 
 public class MainTest {
-    /** Проверка основной функциональности класса {@linkplain ViewResult} */
+    /** Перевірка основної функціональності класу {@linkplain ViewResult} */
     @Test
     public void testCalculations() {
         double v0 = 50;
@@ -24,7 +21,7 @@ public class MainTest {
         }
     }
 
-    /** Проверка сериализации. Корректность восстановления данных. */
+    /** Перевірка серіалізації. Коректність відновлення даних. */
     @Test
     public void testSerializationDeserialization() {
         try {

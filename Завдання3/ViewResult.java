@@ -10,27 +10,27 @@ import java.util.ArrayList;
 
 /**
  * ConcreteProduct
- * (Шаблон проектирования Factory Method)
- * Вычисление функции, сохранение и отображение результатов
+ * (Шаблон проектування Factory Method)
+ * Обчислення функції, збереження та відображення результатів
  * @author xone
  * @version 1.0
  * @see View
  */
 public class ViewResult implements View {
-    /** Имя файла, используемое при сериализации */
+    /** Ім'я файлу, що використовується під час серіалізації */
     private static final String FNAME = "items.bin";
-    /** Определяет количество значений для вычисления по умолчанию */
+    /** Визначає кількість значень для обчислення за промовчанням */
     private static final int DEFAULT_NUM = 10;
-    /** Коллекция аргументов и результатов вычислений */
+    /** Колекція аргументів та результатів обчислень */
     private ArrayList<Demo> items = new ArrayList<Demo>();
 
-    /** Вызывает {@linkplain ViewResult#ViewResult(int n) ViewResult(int n)} с параметром {@linkplain ViewResult#DEFAULT_NUM DEFAULT_NUM} */
+    /** Викликає {@linkplain ViewResult#ViewResult(int n) ViewResult(int n)} з параметром {@linkplain ViewResult#DEFAULT_NUM DEFAULT_NUM} */
     public ViewResult() {
         this(DEFAULT_NUM);
     }
 
-    /** Инициализирует коллекцию {@linkplain ViewResult#items}
-     * @param n начальное количество элементов
+    /** Ініціалізує колекцію {@linkplain ViewResult#items}
+     * @param n початкова кількість елементів
      */
     public ViewResult(int n) {
         for(int ctr = 0; ctr < n; ctr++) {
@@ -38,23 +38,23 @@ public class ViewResult implements View {
         }
     }
 
-    /** Получить значение {@linkplain ViewResult#items}
-     * @return текущее значение ссылки на объект {@linkplain ArrayList}
+    /** Отримати значення {@linkplain ViewResult#items}
+     * @return поточне значення посилання на об'єкт {@linkplain ArrayList}
      */
     public ArrayList<Demo> getItems() {
         return items;
     }
 
-    /** Вычисляет значение функции
-     * @param x аргумент вычисляемой функции
-     * @return результат вычисления функции
+    /** Обчислює значення функції
+     * @param x аргумент обчислюваної функції
+     * @return результат обчислення функції
      */
     private double calc(double x) {
         return Math.sin(x * Math.PI / 180);
     }
 
-    /** Вычисляет значение функции и сохраняет результат в коллекции {@linkplain ViewResult#items}
-     * @param stepX шаг приращения аргумента
+    /** Обчислює значення функції та зберігає результат у колекції {@linkplain ViewResult#items}
+     * @param stepX крок збільшення аргументу
      */
     public void init(double stepX) {
         double x = 0.0;
@@ -64,7 +64,7 @@ public class ViewResult implements View {
         }
     }
 
-    /** Вызывает <b>init(double stepX)</b> со случайным значением аргумента
+    /** Викликає <b>init(double stepX)</b> з випадковим значенням аргументу
      * {@inheritDoc}
      */
     @Override
@@ -72,7 +72,7 @@ public class ViewResult implements View {
         init(Math.random() * 360.0);
     }
 
-    /** Реализация метода {@linkplain View#viewSave()} {@inheritDoc} */
+    /** Реалізація методу {@linkplain View#viewSave()} {@inheritDoc} */
     @Override
     public void viewSave() throws IOException {
         ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream(FNAME));
@@ -81,7 +81,7 @@ public class ViewResult implements View {
         os.close();
     }
 
-    /** Реализация метода {@linkplain View#viewRestore()} {@inheritDoc} */
+    /** Реалізація методу {@linkplain View#viewRestore()} {@inheritDoc} */
     @SuppressWarnings("unchecked")
     @Override
     public void viewRestore() throws Exception {
@@ -90,13 +90,13 @@ public class ViewResult implements View {
         is.close();
     }
 
-    /** Реализация метода {@linkplain View#viewHeader()} {@inheritDoc} */
+    /** Реалізація методу {@linkplain View#viewHeader()} {@inheritDoc} */
     @Override
     public void viewHeader() {
         System.out.println("Results:");
     }
 
-    /** Реализация метода {@linkplain View#viewBody()} {@inheritDoc} */
+    /** Реалізація методу {@linkplain View#viewBody()} {@inheritDoc} */
     @Override
     public void viewBody() {
         for(Demo item : items) {
@@ -105,13 +105,13 @@ public class ViewResult implements View {
         System.out.println();
     }
 
-    /** Реализация метода {@linkplain View#viewFooter()} {@inheritDoc} */
+    /** Реалізація методу {@linkplain View#viewFooter()} {@inheritDoc} */
     @Override
     public void viewFooter() {
         System.out.println("End.");
     }
 
-    /** Реализация метода {@linkplain View#viewShow()} {@inheritDoc} */
+    /** Реалізація методу {@linkplain View#viewShow()} {@inheritDoc} */
     @Override
     public void viewShow() {
         viewHeader();
