@@ -1,4 +1,4 @@
-package Завдання2;
+package Завдання4;
 
 import java.io.*;
 import java.util.Scanner;

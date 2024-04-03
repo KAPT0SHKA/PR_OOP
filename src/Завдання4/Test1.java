@@ -1,4 +1,4 @@
-package Завдання2;
+package Завдання4;
 import java.io.IOException;
 public class Test1 {
     public static void main(String[] args) {

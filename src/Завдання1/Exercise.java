@@ -1,4 +1,4 @@
-package src.Завдання1;
+package Завдання1;
 import java.util.Random;
 import java.lang.Math;
 

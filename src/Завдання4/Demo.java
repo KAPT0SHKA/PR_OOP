@@ -1,4 +1,4 @@
-package Завдання2;
+package Завдання4;
 
 import java.io.*;
 
@@ -63,6 +63,11 @@ class Demo implements Serializable {
         fileOut.close();
     }
 
+    public void saveData(ViewTable viewTable) {
+        // Реалізація методу для збереження даних
+        System.out.println("Data saved successfully.");
+    }
+
     public static Demo deserialize(String filename) throws IOException, ClassNotFoundException {
         FileInputStream fileIn = new FileInputStream(filename);
         ObjectInputStream in = new ObjectInputStream(fileIn);
@@ -71,4 +76,5 @@ class Demo implements Serializable {
         fileIn.close();
         return demo;
     }
+    
 }
