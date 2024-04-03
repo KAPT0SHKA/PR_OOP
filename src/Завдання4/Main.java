@@ -33,7 +33,28 @@ public class Main {
             e.printStackTrace();
         }
 
-        // Виведення даних у вигляді таблиці
+        // Питання користувача про виведення таблиці
+        System.out.println("Натисніть 'т' для виведення таблиці:");
+        char input = scanner.next().charAt(0);
+        if (input == 'т') {
+            // Виведення у вигляді таблиці
+            displayTable(v0, alpha, distance);
+        } else {
+            System.out.println("До побачення!");
+        }
+
+        scanner.close();
+    }
+
+    private static void saveResultToFile(BallisticResult result) throws IOException {
+        try (FileOutputStream fileOut = new FileOutputStream("result.ser");
+             ObjectOutputStream out = new ObjectOutputStream(fileOut)) {
+            out.writeObject(result);
+        }
+    }
+
+    private static void displayTable(double v0, double alpha, double distance) {
+        // Виведення у вигляді таблиці
         List<String> headers = new ArrayList<>();
         headers.add("Початкова швидкість (m/s)");
         headers.add("Кут запуску");
@@ -46,17 +67,7 @@ public class Main {
         row.add(String.valueOf(distance));
         data.add(row);
 
-        // Виведення у вигляді таблиці
         ViewTable viewTable = new ViewTable(headers, data);
         viewTable.displayTable();
-
-        scanner.close();
-    }
-
-    private static void saveResultToFile(BallisticResult result) throws IOException {
-        try (FileOutputStream fileOut = new FileOutputStream("result.ser");
-             ObjectOutputStream out = new ObjectOutputStream(fileOut)) {
-            out.writeObject(result);
-        }
     }
 }
