@@ -5,6 +5,7 @@ import java.io.*;
                     /**
          * Клас для зберігання параметрів і результатів обчислень 8-23
          */
+        
 class BallisticResult implements Serializable {
     double v0; // Початкова швидкість
     double alpha; // Кут

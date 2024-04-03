@@ -1,6 +1,7 @@
 package Завдання4;
 
 import org.junit.Test;
+import static org.junit.Assert.assertEquals;
 import java.io.IOException;
 
 public class MainTest {
@@ -41,4 +42,19 @@ public class MainTest {
             e.printStackTrace();
         } 
     }
+
+    @Test
+    public void testViewSave() {
+        ViewResult viewResult = new ViewResult();
+        try {
+            viewResult.viewSave();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        // Check the presence of the file here
+        // For example, you can check if the file "items.ser" exists with the appropriate size
+        // Note that assertions are used here
+        assertEquals("items.ser", ViewResult.getFNAME());
+    }
 }
+
