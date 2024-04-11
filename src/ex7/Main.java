@@ -1,4 +1,4 @@
-package Завдання6;
+package ex7;
 
 import java.io.*;
 import java.util.*;
