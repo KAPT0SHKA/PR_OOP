@@ -2,10 +2,10 @@ package ex7;
 
 import java.io.*;
 
-                    /**
-         * Клас для зберігання параметрів і результатів обчислень 8-23
-         */
-        
+/**
+ * Клас для зберігання параметрів і результатів обчислень 8-23
+ */
+
 class BallisticResult implements Serializable {
     double v0; // Початкова швидкість
     double alpha; // Кут
@@ -23,24 +23,26 @@ class BallisticResult implements Serializable {
     }
 }
 
-                    /**
-         * Клас для знаходження рішення задачі 26-27
-         */
+/**
+ * Клас для знаходження рішення задачі 26-27
+ */
 class BallisticCalculator {
-    private double g = 9.81;
 
-                    /**
-         * Метод для обчислення відстані 30-32
-         */
+    /**
+     * Метод для обчислення відстані 30-32
+     */
     public double calculateDistance(double v0, double alpha) {
+        final double g = 9.81; // Declaring 'g' as a local variable
         double radians = Math.toRadians(alpha);
         return (v0 * v0 * Math.sin(2 * radians)) / g;
     }
 }
 
-                    /**
-         * Клас для демонстрації збереження та відновлення стану об'єкта 39-52
-         */
+
+
+/**
+ * Клас для демонстрації збереження та відновлення стану об'єкта 39-52
+ */
 class Demo implements Serializable {
     private BallisticResult result;
 
@@ -77,5 +79,5 @@ class Demo implements Serializable {
         fileIn.close();
         return demo;
     }
-    
+
 }

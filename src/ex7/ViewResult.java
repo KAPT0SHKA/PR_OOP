@@ -4,6 +4,7 @@ import java.io.*;
 import java.util.ArrayList;
 
 public class ViewResult implements View, Serializable {
+    @Serial
     private static final long serialVersionUID = 1L;
     private static final String FNAME = "items.ser";
     private static final int DEFAULT_NUM = 10; /** Оголошення константи 9 */
@@ -98,10 +99,10 @@ public class ViewResult implements View, Serializable {
             return y;
         }
     }
-    
+
     public static String getFNAME() {
         return FNAME;
     }
-    
+
 
 }

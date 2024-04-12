@@ -21,7 +21,6 @@ public class app {
         window.setBounds(5, 5, 500, 500);
         window.setLayout(null);
 
-        // Text fields for input
         JTextField velocityField = new JTextField();
         JTextField angleField = new JTextField();
         velocityField.setBounds(5, 25, 150, 50);
@@ -29,13 +28,11 @@ public class app {
         window.add(velocityField);
         window.add(angleField);
 
-        // Button for calculation
         JButton calculateButton = new JButton("Calculate");
         calculateButton.setBounds(5, 155, 102, 50);
         calculateButton.setBackground(Color.CYAN);
         window.add(calculateButton);
 
-        // Button for displaying table
         JButton displayTableButton = new JButton("Display Table");
         displayTableButton.setBounds(120, 155, 150, 50);
         displayTableButton.setBackground(Color.YELLOW);
@@ -50,12 +47,10 @@ public class app {
         window.add(label2);
 
 
-        // Label for displaying result
         JLabel resultLabel = new JLabel();
         resultLabel.setBounds(5, 185, 400, 50);
         window.add(resultLabel);
 
-        // Event handling for calculation button click
         calculateButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -74,7 +69,6 @@ public class app {
             }
         });
 
-        // Event handling for displaying table button click
         displayTableButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -82,20 +76,17 @@ public class app {
             }
         });
 
-        // Initialize the queue
         resultsQueue = new LinkedList<>();
 
         window.setVisible(true);
     }
 
     private static void displayResultsTable() {
-        // Create headers for the table
         List<String> headers = new ArrayList<>();
         headers.add("Initial Velocity (m/s)");
         headers.add("Launch Angle");
         headers.add("Distance (m)");
 
-        // Create data for the table
         List<List<String>> data = new ArrayList<>();
         for (BallisticResult result : resultsQueue) {
             List<String> row = new ArrayList<>();
@@ -105,10 +96,8 @@ public class app {
             data.add(row);
         }
 
-        // Create the table view
         ViewTable viewTable = new ViewTable(headers, data);
-
-        // Display the table in a dialog
-        JOptionPane.showMessageDialog(null, new JScrollPane(viewTable.getTable()), "Results Table", JOptionPane.PLAIN_MESSAGE);
+        viewTable.displayTable();
     }
+
 }

@@ -31,7 +31,7 @@ public class MainTest {
             BallisticResult result = new BallisticResult(50, 45, 127.548);
             Demo demo = new Demo();
             demo.saveResult(result);
-            
+
             demo.serialize("test.ser");
             Demo restoredDemo = Demo.deserialize("test.ser");
 
@@ -41,9 +41,10 @@ public class MainTest {
                 System.out.println("Serialization and deserialization test failed.");
             }
         } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
-        } 
+            System.err.println("Error during serialization or deserialization: " + e.getMessage());
+        }
     }
+
 
     @Test
     public void testViewSave() {
@@ -51,9 +52,10 @@ public class MainTest {
         try {
             viewResult.viewSave();
         } catch (IOException e) {
-            e.printStackTrace();
+            System.err.println("Error occurred while saving view: " + e.getMessage());
         }
         assertEquals("items.ser", ViewResult.getFNAME());
     }
+
 }
 
