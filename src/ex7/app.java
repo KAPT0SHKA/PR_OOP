@@ -24,22 +24,31 @@ public class app {
         // Text fields for input
         JTextField velocityField = new JTextField();
         JTextField angleField = new JTextField();
-        velocityField.setBounds(5, 5, 150, 50);
-        angleField.setBounds(5, 65, 150, 50);
+        velocityField.setBounds(5, 25, 150, 50);
+        angleField.setBounds(5, 95, 150, 50);
         window.add(velocityField);
         window.add(angleField);
 
         // Button for calculation
         JButton calculateButton = new JButton("Calculate");
-        calculateButton.setBounds(5, 125, 102, 50);
+        calculateButton.setBounds(5, 155, 102, 50);
         calculateButton.setBackground(Color.CYAN);
         window.add(calculateButton);
 
         // Button for displaying table
         JButton displayTableButton = new JButton("Display Table");
-        displayTableButton.setBounds(120, 125, 150, 50);
+        displayTableButton.setBounds(120, 155, 150, 50);
         displayTableButton.setBackground(Color.YELLOW);
         window.add(displayTableButton);
+
+        JLabel label = new JLabel("Введіть початкову швидкість (m/s):");
+        label.setBounds(5,-15,220,60);
+        window.add(label);
+
+        JLabel label2 = new JLabel("Введіть кут запуску:");
+        label2.setBounds(5,60,150,50);
+        window.add(label2);
+
 
         // Label for displaying result
         JLabel resultLabel = new JLabel();
