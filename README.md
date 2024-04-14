@@ -121,9 +121,9 @@
 
 ### Результати роботи програми
 
-![](Screenshot/16.png)
+![](Screenshot/19.png)
 
-![](Screenshot/17.png)
+![](Screenshot/20.png)
 
 
 
