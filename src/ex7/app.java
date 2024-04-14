@@ -28,12 +28,12 @@ public class app {
         window.add(velocityField);
         window.add(angleField);
 
-        JButton calculateButton = new JButton("Calculate");
-        calculateButton.setBounds(5, 155, 102, 50);
+        JButton calculateButton = new JButton("Підрахувати");
+        calculateButton.setBounds(5, 155, 120, 50);
         calculateButton.setBackground(Color.CYAN);
         window.add(calculateButton);
 
-        JButton displayTableButton = new JButton("Display Table");
+        JButton displayTableButton = new JButton("Показати таблицю");
         displayTableButton.setBounds(120, 155, 150, 50);
         displayTableButton.setBackground(Color.YELLOW);
         window.add(displayTableButton);
@@ -48,7 +48,7 @@ public class app {
 
 
         JLabel resultLabel = new JLabel();
-        resultLabel.setBounds(5, 185, 400, 50);
+        resultLabel.setBounds(5, 195, 400, 50);
         window.add(resultLabel);
 
         calculateButton.addActionListener(new ActionListener() {
@@ -59,12 +59,12 @@ public class app {
                     double alpha = Double.parseDouble(angleField.getText());
                     BallisticCalculator calculator = new BallisticCalculator();
                     double distance = calculator.calculateDistance(v0, alpha);
-                    resultLabel.setText("Distance: " + distance + " meters");
+                    resultLabel.setText("Відстань: " + distance + " метрів");
                     // Add the result to the queue
                     BallisticResult result = new BallisticResult(v0, alpha, distance);
                     resultsQueue.offer(result);
                 } catch (NumberFormatException ex) {
-                    resultLabel.setText("Invalid input. Please enter numeric values.");
+                    resultLabel.setText("Неправильні дані. Будь ласка, введіть числові значення.");
                 }
             }
         });
@@ -83,9 +83,9 @@ public class app {
 
     private static void displayResultsTable() {
         List<String> headers = new ArrayList<>();
-        headers.add("Initial Velocity (m/s)");
-        headers.add("Launch Angle");
-        headers.add("Distance (m)");
+        headers.add("Початкова швидкість (м/с)");
+        headers.add("Кут запуску");
+        headers.add("Відстань (м)");
 
         List<List<String>> data = new ArrayList<>();
         for (BallisticResult result : resultsQueue) {
